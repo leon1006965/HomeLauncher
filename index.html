@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Launcher — Minimalistic Android Launcher</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        surface: {
+                            light: '#FAFAFA',
+                            dark: '#0A0A0A',
+                            cardLight: '#FFFFFF',
+                            cardDark: '#141414'
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(16px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Hide scrollbars */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-surface-light text-neutral-900 dark:bg-surface-dark dark:text-neutral-100 antialiased selection:bg-neutral-900 selection:text-white dark:selection:bg-white dark:selection:text-neutral-900 transition-colors duration-300">
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-surface-light/80 dark:bg-surface-dark/80 border-b border-neutral-200/60 dark:border-neutral-800/60">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-2.5 group">
+                <div class="w-8 h-8 rounded-xl bg-neutral-900 dark:bg-white flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+                    <div class="grid grid-cols-2 gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-white dark:bg-neutral-900"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-white dark:bg-neutral-900"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-white dark:bg-neutral-900"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-white/50 dark:bg-neutral-900/50"></span>
+                    </div>
+                </div>
+                <span class="font-semibold tracking-tight text-lg">Home Launcher</span>
+            </a>
+
+            <!-- Nav Links & Theme Toggle -->
+            <div class="flex items-center gap-6">
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-500 dark:text-neutral-400">
+                    <a href="#philosophy" class="hover:text-neutral-900 dark:hover:text-white transition-colors">Highlights</a>
+                    <a href="#download" class="hover:text-neutral-900 dark:hover:text-white transition-colors">Download</a>
+                </nav>
+
+                <div class="flex items-center gap-3">
+                    <!-- Dark/Light Theme Switch -->
+                    <button id="theme-toggle" aria-label="Toggle color theme" class="p-2.5 rounded-full text-neutral-600 dark:text-neutral-300 hover:bg-neutral-200/60 dark:hover:bg-neutral-800 transition-colors">
+                        <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i>
+                        <i data-lucide="sun" class="w-4 h-4 block dark:hidden"></i>
+                    </button>
+
+                    <a href="https://github.com/leon1006965/HomeLauncher/releases" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-full bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 text-sm font-medium hover:opacity-90 transition-opacity">
+                        Get APK
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-20 pb-16 md:pt-28 md:pb-24 px-6">
+            <div class="max-w-4xl mx-auto text-center animate-fade-in-up">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-200/60 dark:bg-neutral-800/80 text-xs font-medium text-neutral-700 dark:text-neutral-300 mb-8">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    Free &bull; No Tracking &bull; Optimized for Android
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-semibold tracking-tight leading-[1.08] mb-6">
+                    Pure icons.<br>
+                    <span class="text-neutral-400 dark:text-neutral-500">Smooth motion.</span>
+                </h1>
+
+                <p class="max-w-xl mx-auto text-base sm:text-lg text-neutral-500 dark:text-neutral-400 leading-relaxed mb-10 font-normal">
+                    Home Launcher is a free, minimalistic Android launcher featuring app icons only, light customization, and very smooth open and close app animations.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="https://github.com/leon1006965/HomeLauncher/releases" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-medium text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-neutral-900/10 dark:shadow-none hover:scale-[1.02] active:scale-[0.98] transition-all">
+                        <i data-lucide="download" class="w-4 h-4"></i>
+                        Download APK on GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Highlights Grid -->
+        <section id="philosophy" class="py-16 md:py-24 px-6">
+            <div class="max-w-5xl mx-auto">
+                <div class="max-w-xl mb-14">
+                    <span class="text-xs font-semibold uppercase tracking-widest text-neutral-400">Overview</span>
+                    <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mt-2">
+                        Focused on the essentials.
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Card 1 -->
+                    <div class="p-8 rounded-3xl bg-white dark:bg-surface-cardDark border border-neutral-200/80 dark:border-neutral-800">
+                        <div class="w-11 h-11 rounded-2xl bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center mb-6">
+                            <i data-lucide="layout-grid" class="w-5 h-5 text-neutral-800 dark:text-neutral-200"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2.5">Minimalistic App Icons Only</h3>
+                        <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                            A clean, distraction-free home screen built purely around your app icons without unnecessary clutter.
+                        </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="p-8 rounded-3xl bg-white dark:bg-surface-cardDark border border-neutral-200/80 dark:border-neutral-800">
+                        <div class="w-11 h-11 rounded-2xl bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center mb-6">
+                            <i data-lucide="sparkles" class="w-5 h-5 text-neutral-800 dark:text-neutral-200"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2.5">Smooth Open & Close Animations</h3>
+                        <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                            Fluid, responsive transitions whenever you open or close an app, keeping navigation natural and seamless.
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="p-8 rounded-3xl bg-white dark:bg-surface-cardDark border border-neutral-200/80 dark:border-neutral-800">
+                        <div class="w-11 h-11 rounded-2xl bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center mb-6">
+                            <i data-lucide="sliders-horizontal" class="w-5 h-5 text-neutral-800 dark:text-neutral-200"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2.5">Light Customization</h3>
+                        <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                            Includes just a bit of customization so you can tailor your home screen while keeping the minimalist feel intact.
+                        </p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="p-8 rounded-3xl bg-white dark:bg-surface-cardDark border border-neutral-200/80 dark:border-neutral-800">
+                        <div class="w-11 h-11 rounded-2xl bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center mb-6">
+                            <i data-lucide="shield-check" class="w-5 h-5 text-neutral-800 dark:text-neutral-200"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2.5">Optimized & Private</h3>
+                        <p class="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
+                            Completely free with zero tracking, optimized performance, and zero flags on VirusTotal.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download CTA Section -->
+        <section id="download" class="py-16 md:py-24 px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="rounded-[2.5rem] bg-neutral-900 dark:bg-neutral-900 text-white p-8 sm:p-12 md:p-16 border border-neutral-800 text-center">
+                    <div class="w-14 h-14 rounded-2xl bg-white text-neutral-900 mx-auto mb-6 flex items-center justify-center">
+                        <div class="grid grid-cols-2 gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-neutral-900"></span>
+                            <span class="w-2 h-2 rounded-full bg-neutral-900"></span>
+                            <span class="w-2 h-2 rounded-full bg-neutral-900"></span>
+                            <span class="w-2 h-2 rounded-full bg-neutral-900/40"></span>
+                        </div>
+                    </div>
+
+                    <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight mb-4">
+                        Download Home Launcher
+                    </h2>
+                    <p class="text-neutral-400 text-sm sm:text-base max-w-lg mx-auto mb-8 leading-relaxed">
+                        Get the official Android APK directly from GitHub Releases. Free, no tracking, optimized, and clean on VirusTotal.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                        <a href="https://github.com/leon1006965/HomeLauncher/releases" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white text-neutral-900 font-medium text-sm flex items-center justify-center gap-2.5 hover:opacity-90 active:scale-[0.98] transition-all">
+                            <i data-lucide="github" class="w-4 h-4"></i>
+                            Download APK from GitHub Releases
+                        </a>
+                    </div>
+
+                    <!-- Verified Facts Strip -->
+                    <div class="pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-neutral-400">
+                        <span class="flex items-center gap-1.5">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i>
+                            Free Android APK
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i>
+                            No Tracking
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i>
+                            Optimized
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i>
+                            0 Flags on VirusTotal
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Minimal Footer -->
+    <footer class="border-t border-neutral-200/70 dark:border-neutral-800/70 py-10 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-500 dark:text-neutral-400">
+            <div class="flex items-center gap-2 font-medium text-neutral-700 dark:text-neutral-300">
+                <span>Home Launcher</span>
+                <span>&bull;</span>
+                <span>Minimalistic Android Launcher</span>
+            </div>
+            <div>
+                <a href="https://github.com/leon1006965/HomeLauncher/releases" target="_blank" rel="noopener noreferrer" class="hover:text-neutral-900 dark:hover:text-white transition-colors">
+                    GitHub Releases
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // System & Manual Dark Mode Handling
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlEl = document.documentElement;
+
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            htmlEl.classList.add('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlEl.classList.toggle('dark');
+        });
+    </script>
+</body>
+</html>
